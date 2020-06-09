@@ -1,0 +1,200 @@
+body {
+  background-color: green
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  padding-top: 30px;
+  width: 90%
+}
+
+h2 {
+  font-style: italic;
+}
+
+h3 {
+  margin: 0;
+}
+
+.header-right {
+  padding: 20px;
+  width: 50%;
+}
+.clockimagediv {
+  height: 65px;
+}
+
+.clocktext {
+  color: red;
+  font-size: 25px;
+  position: absolute;
+}
+
+.clockimage {
+  position: absolute;
+  width: 300px;
+  border-radius: 5px;
+  border: 3px black;
+}
+.header-left {
+  padding: 20px;
+  width: 50%;
+}
+header, img {
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 95%;
+
+}
+
+.all_products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 95%
+}
+
+.simpleCart_shelfItem {
+    border: 1px solid #EFEFEF;
+    border-radius: 10px;
+    background-color: #ded014;
+    padding: 25px 18px 10px 18px;
+    margin: 15px 0;
+    min-width: 250px;
+    max-width: 30%
+}
+
+.item_thumb, .detail_thumb {
+    height: 150px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.simpleStore_getDetail_button {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    padding: 10px;
+}
+
+.simpleStore_getDetail_price {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  padding: 5px;
+  margin: auto;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+
+}
+
+.productname {
+  font-size: 25px;
+  max-width: 230px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bumpersticker {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  max-width: 300px;
+  font-size: 20px;
+  padding: 8px;
+  background-color: black;
+  color: yellow;
+}
+
+h5 {
+  margin: 10px
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  background-color: #fca503;
+  color: black;
+  border-color: #888;
+  outline: 0; }
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: #33C3F0;
+  border-color: #33C3F0; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB; }
+
+
+  /* Utilities
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .u-full-width {
+    width: 100%;
+    box-sizing: border-box; }
+  .u-max-full-width {
+    max-width: 100%;
+    box-sizing: border-box; }
+  .u-pull-right {
+    float: right; }
+  .u-pull-left {
+    float: left; }

@@ -1,0 +1,56 @@
+<header>
+  <div class='header-left'>
+    <img src="../images/blastfrompastlogo.gif">
+    <h1>Welcome to Blast From the Past!</h1>
+    <h2>"Hill Valley's Most Famous Antique Store"</h2>
+    <div class='clockimagediv'>
+      <img src="../images/presenttime.png" class='clockimage' alt="">
+      <p><span class='clocktext clock'>clock</span></p>
+    </div>
+    <h3>2015 Main Street<br/>Hill Valley<br/>555-1376</h3>
+  </div>
+
+  <div class='header-right'>
+
+  </div>
+</header>
+
+<script>
+
+  var currentTime = new Date();
+  var desiredTime = new Date(2015, 09, 21, 16, 29, 55)
+  var difference = currentTime - desiredTime
+  console.log('currentTime: ' + currentTime)
+  console.log('desiredTime: ' + desiredTime)
+  console.log('parsed currentTime: ' + Date.parse(currentTime))
+  console.log('parsed desiredTime: ' + Date.parse(desiredTime))
+  console.log('difference var:     ' + difference)
+  var actualDate = Date.parse(currentTime) - difference
+  console.log('parsed desiredTime: ' + Date.parse(desiredTime))
+  console.log('actualdate:         ' + actualDate)
+
+  var testPrint = Date.now(actualDate);
+  console.log("new date" + testPrint)
+
+
+function clock() {
+  console.log('hit')
+  var time = new Date();
+  time.setTime(Date.parse(time) - difference)
+    hours = time.getHours(),
+    minutes = time.getMinutes(),
+    seconds = time.getSeconds();
+    month = time.getMonth();
+    date = time.getDate();
+    year = time.getFullYear();
+
+    document.querySelectorAll('.clock')[0].innerHTML = "year: " + year + " | month: " + month +  ' | date: ' + date + "| time: " + harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+    function harold(standIn) {
+      if (standIn < 10) {
+        standIn = '0' + standIn
+      }
+      return standIn;
+    }
+}
+setInterval(clock, 1000);
+</script>
