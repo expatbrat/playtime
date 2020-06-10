@@ -3,7 +3,10 @@
 //___________________
 const express = require('express');
 const methodOverride  = require('method-override');
-const mongoose = require ('mongoose');
+// const mongoose = require ('mongoose');
+mongoose = require('mongoose').set('debug', true);
+
+
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()

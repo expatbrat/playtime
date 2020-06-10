@@ -10,6 +10,14 @@ const storeSchema = new mongoose.Schema(
   }
 )
 
-const Product = mongoose.model('product', storeSchema)
+const timeSchema = new mongoose.Schema(
+  {
+    timeLine: String,
+    timeOffset: Number,
+    timeProducts: [storeSchema]
+  }
+)
 
-module.exports = Product;
+const Time = mongoose.model('time', timeSchema)
+
+module.exports = Time;

@@ -2,29 +2,22 @@
 <html lang="en" dir="ltr">
 <%- include('head.ejs') %>
 <body>
-
     <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <div class="container simpleStore">
         <div class="row">
             <a class="brand" href="#"></a>
-            <a class="button button-primary u-pull-right simpleStore_viewCart">
-                <i class="fa fa-shopping-cart"></i> Cart <span class="simpleCart_total"></span>
-            </a>
         </div>
         <div class="simpleStore_container"></div>
         <div class="simpleStore_cart_container"></div>
     </div>
-    <%- include('header.ejs') %>
+
 <h2> details page </h2>
 
     <div class='single_product'>
         <table>
-          <tr><img src="<%= product.img %>"></tr>
-          <tr><%= product.name %></tr>
-          <tr>Product Description: <%= product.description %></tr>
-          <tr>Item Price: $<%= product.price %></tr>
-          <tr>Item Quantity: <%= product.qty %></tr>
+          <% console.log(product) %>
+          <%= product %>
         </table>
     <a href="./">Browse Store </a>
     </div>

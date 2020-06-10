@@ -5,7 +5,7 @@
     <h2>"Hill Valley's Most Famous Antique Store"</h2>
     <div class='clockimagediv'>
       <img src="../images/presenttime.png" class='clockimage' alt="">
-      <p><span class='clocktext clock'>clock</span></p>
+      <p><span class='clocktext clockmonth'></span><span class='clocktext clockday'></span><span class='clocktext clockyear'></span><span class='clocktext clockhour'></span><span class='clocktext clockminute'></span></p>
     </div>
     <h3>2015 Main Street<br/>Hill Valley<br/>555-1376</h3>
   </div>
@@ -16,41 +16,37 @@
 </header>
 
 <script>
-
-  var currentTime = new Date();
-  var desiredTime = new Date(2015, 09, 21, 16, 29, 55)
-  var difference = currentTime - desiredTime
-  console.log('currentTime: ' + currentTime)
-  console.log('desiredTime: ' + desiredTime)
-  console.log('parsed currentTime: ' + Date.parse(currentTime))
-  console.log('parsed desiredTime: ' + Date.parse(desiredTime))
-  console.log('difference var:     ' + difference)
-  var actualDate = Date.parse(currentTime) - difference
-  console.log('parsed desiredTime: ' + Date.parse(desiredTime))
-  console.log('actualdate:         ' + actualDate)
-
-  var testPrint = Date.now(actualDate);
-  console.log("new date" + testPrint)
-
+  const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+    "JUL", "AUG", "SEP", "OCT  ", "NOV", "DEC"];
 
 function clock() {
-  console.log('hit')
   var time = new Date();
-  time.setTime(Date.parse(time) - difference)
-    hours = time.getHours(),
-    minutes = time.getMinutes(),
-    seconds = time.getSeconds();
-    month = time.getMonth();
-    date = time.getDate();
-    year = time.getFullYear();
+    time.setTime(Date.parse(time) - <%= product[0].timeOffset %>)
+      hours = time.getHours(),
+      minutes = time.getMinutes(),
+      seconds = time.getSeconds();
+      month = time.getMonth();
+      date = time.getDate();
+      year = time.getFullYear();
 
-    document.querySelectorAll('.clock')[0].innerHTML = "year: " + year + " | month: " + month +  ' | date: ' + date + "| time: " + harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+      document.querySelectorAll('.clockmonth')[0].innerHTML = monthNames[month];
+      document.querySelectorAll('.clockday')[0].innerHTML = date;
+      document.querySelectorAll('.clockyear')[0].innerHTML = year;
+      document.querySelectorAll('.clockhour')[0].innerHTML = hours;
+      document.querySelectorAll('.clockminute')[0].innerHTML = minutes;
+
+
+
+    // + '    ' + date + ' '+  year + ' ' + harold(hours) + ":" + harold(minutes);
+
+
     function harold(standIn) {
       if (standIn < 10) {
         standIn = '0' + standIn
       }
       return standIn;
     }
-}
-setInterval(clock, 1000);
+};
+
+setInterval(clock(), 1000)
 </script>

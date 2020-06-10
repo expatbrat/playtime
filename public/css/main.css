@@ -28,9 +28,32 @@ h3 {
 }
 
 .clocktext {
-  color: red;
-  font-size: 25px;
-  position: absolute;
+  color: green;
+  font-size: 20px;
+  position: relative;
+  font-family: 'Lato', sans-serif;
+  left: 12px;
+  top: 15px;
+}
+
+.clockmonth {
+  top: 15px;
+}
+
+.clockday {
+  left: 29px;
+}
+
+.clockyear {
+  left: 57px;
+}
+
+.clockhour {
+  left: 103px;
+}
+
+.clockminute {
+  left: 130px;
 }
 
 .clockimage {

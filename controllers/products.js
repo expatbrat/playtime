@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/storedata.js');
-const Time = require('../models/time.js');
+// const Time = require('../models/time.js');
 
 
 router.get('/reset', (req, res) => {
@@ -18,8 +18,6 @@ router.get('/reset', (req, res) => {
 })
 
 
-
-
 router.get('/', (req, res) => {
       Product.find({}, (error, allProducts) => {
           res.render(
@@ -32,17 +30,16 @@ router.get('/', (req, res) => {
   });
 
 
-
-
 router.get('/seed', async (req, res) => {
-  const timeLines = [
-    {
-      timeLine: 'October 21st, 2015',
-      timeOffset: 0
-    }
-  ]
+  var currentTime = new Date();
+  var desiredTime = new Date(2015, 09, 21, 16, 29, 55)
+  var difference = currentTime - desiredTime
+  var actualDate = Date.parse(currentTime) - difference
   const newProducts =
-    [
+  {
+    timeLine: 'October 21st, 2015',
+    timeOffset: difference,
+    timeProducts: [
       {
         name: 'Betamax VCR',
         description: `Betamax was a rival to VHS, which would allow consumers to watch film media in their own home. It didn't sell well, and was abandoned long before its rival.`,
@@ -254,22 +251,21 @@ router.get('/seed', async (req, res) => {
         price: 670,
         qty: 6
       }
-    ]
+    ]}
     try {
       const seedItems = await Product.create(newProducts)
-      const seedTime = await Time.create(timeLines)
-      res.redirect('../')
+      res.redirect('/store')
     } catch (err) {
       res.send(err.message)
     }
   })
 
   router.get('/:id', (req, res) => {
-      Product.findById(req.params.id, (error, allProducts) => {
+      Product.findById(req.params.id, (error, foundProducts) => {
           res.render(
               'details.ejs',
               {
-                  product: allProducts
+                  product: foundProducts
               }
           )
       })

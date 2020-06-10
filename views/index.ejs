@@ -4,27 +4,33 @@
 <div class="container">
   <body>
     <%- include('header.ejs') %>
-
     <div class="all_products">
-    <% for (let i = 0; i < product.length; i++) { %>
+    <%
+    if (product[0].timeProducts.length == undefined) {
+      console.log('your mom');
+      window.location.href = './store/reset'
+    }
+    else {
+      for (let i = 0; i < product[0].timeProducts.length; i++) {
+      %>
         <div class="simpleCart_shelfItem">
-            <a href='./store/<%= product[i].id %>'><img src="<%= product[i].img %>" class="item_thumb"/></a>
-                <h5 class="productname"><a href='./store/<%= product[i].id %>'><%= product[i].name %></a></h5>
+            <a href='/store/<%= product[0].timeProducts[i].id %>'><img src="<%= product[0].timeProducts[i].img %>" class="item_thumb"/></a>
+                <h5 class="productname"><a href='/store/<%= product[0].timeProducts[i].id %>'><%= product[0].timeProducts[i].name %></a></h5>
                 <div class="simpleStore_getDetail_price">
-                    <span class="productprice">Price: $<%= product[i].price %></span>
+                    <span class="productprice">Price: $<%= product[0].timeProducts[i].price %></span>
                 </div>
                 <div class="simpleStore_getDetail_button">
-                    <a href='./store/<%= product[i].id %>' class="button">Details</a>
+                    <a href='/store/<%= product[0].timeProducts[i].id %>' class="button">Details</a>
                 </div>
 
         </div>
 
-    <%  } %>
+    <%  }} %>
   </div>
 
-
-        <a href="./reset"> Travel back in time </a>
         <p><span class='bumpersticker'>THE POPULATION BOMB IS EVERYONES BABY</span></p>
+        <a href="/store/reset"> <img src="/images/flux.png" alt=""> </a>
+
 </div>
 <!-- Yellow text black background -->
 <!-- DO YOUR THING!
