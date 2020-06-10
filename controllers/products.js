@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-// const router = express.Router({ mergeParams: true });
 const Product = require('../models/storedata.js');
-// const Time = require('../models/time.js');
 
 
 router.get('/reset', (req, res) => {
@@ -19,14 +17,19 @@ router.get('/reset', (req, res) => {
 
 router.get('/', (req, res) => {
       Product.find({}, (error, allProducts) => {
+        if(allProducts.length === 0) {
+          res.redirect('/store/seed')
+        } else {
           res.render(
               'index.ejs',
               {
                   product: allProducts
               }
           );
+        }
       })
   });
+
 
 
 router.get('/seed', async (req, res) => {
@@ -261,10 +264,6 @@ router.get('/seed', async (req, res) => {
 
 
   router.get('/:idTime/:id', (req, res) => {
-
-
-   // console.log('log param in route1' + req.params.idTime);
-//    db.times.findOne({"_id": ObjectId("5ee135d81e7cc72c1d2281e9") })
       Product.find({}, (error, foundProducts) => {
          let singleProduct;
          for (let i = 0; i < foundProducts[0].timeProducts.length; i++) {
@@ -287,15 +286,5 @@ router.get('/seed', async (req, res) => {
 
 
 
-router.get('/', (req, res) => {
-      Product.find({}, (error, allProducts) => {
-          res.render(
-              'index.ejs',
-              {
-                  product: allProducts
-              }
-          );
-      })
-  });
 
 module.exports = router;

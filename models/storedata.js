@@ -7,21 +7,8 @@ const storeSchema = new mongoose.Schema(
     img: String,
     price: Number,
     qty: Number,
-    // _id: Number
   }
 )
-// const timeSchema = new mongoose.Schema(
-//   {
-//     timeLine: String,
-//     timeOffset: Number,
-//     timeProducts: [
-//       {
-//         type: Schema.Types.ObjectId,
-//         ref: "storeSchema"
-//       }
-//     ]
-//   }
-// )
 
 const timeSchema = new mongoose.Schema(
   {

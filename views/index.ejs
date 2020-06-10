@@ -3,16 +3,15 @@
 <%- include('head.ejs') %>
 <div class="container">
   <body>
+    <%
+    if (!product[0]) {
+      window.location.href = './store/reset'
+    } else { %>
     <%- include('header.ejs') %>
     <div class="all_products">
-    <%
-    if (product[0].timeProducts.length == undefined) {
-      console.log('if statement')
-      window.location.href = './store/reset'
-    }
-    else {
+
+  <%
       for (let i = 0; i < product[0].timeProducts.length; i++) {
-        console.log(product[0]._id)
       %>
         <div class="simpleCart_shelfItem">
             <a href='/store/<%= product[0]._id %>/<%= product[0].timeProducts[i].id %>'><img src="<%= product[0].timeProducts[i].img %>" class="item_thumb"/></a>
