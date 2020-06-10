@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <%- include('head.ejs') %>
+
 <body>
+  <%- include('header.ejs') %>
+  <% console.log('log product' + product) %>
     <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <div class="container simpleStore">
@@ -12,12 +15,11 @@
         <div class="simpleStore_cart_container"></div>
     </div>
 
-<h2> details page </h2>
+<h2> details page!!!! </h2>
 
     <div class='single_product'>
         <table>
-          <% console.log(product) %>
-          <%= product %>
+          <%= id %>
         </table>
     <a href="./">Browse Store </a>
     </div>

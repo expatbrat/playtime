@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
+// const router = express.Router({ mergeParams: true });
 const Product = require('../models/storedata.js');
 // const Time = require('../models/time.js');
 
 
 router.get('/reset', (req, res) => {
-  // console.log('test')
-  console.log('reset hit');
   Product.remove({}, (error, allProducts) => {
     res.render(
       'reset.ejs',
@@ -261,15 +260,30 @@ router.get('/seed', async (req, res) => {
   })
 
   router.get('/:id', (req, res) => {
-      Product.findById(req.params.id, (error, foundProducts) => {
+    console.log('log param in route' + req.params.id);
+      Product.find({}, (error, foundProducts) => {
           res.render(
               'details.ejs',
               {
-                  product: foundProducts
+                  product: foundProducts,
+                  id: req.params.id
               }
           )
       })
   })
+
+
+  // router.get('/:id', (req, res) => {
+  //   console.log('log param in route' + req.params.id);
+  //     Product.findById(req.params.id, (error, foundProducts) => {
+  //         res.render(
+  //             'details.ejs',
+  //             {
+  //                 product: foundProducts
+  //             }
+  //         )
+  //     })
+  // })
 
 
 router.get('/', (req, res) => {
@@ -282,7 +296,5 @@ router.get('/', (req, res) => {
           );
       })
   });
-
-
 
 module.exports = router;
