@@ -7,20 +7,21 @@
     <div class="all_products">
     <%
     if (product[0].timeProducts.length == undefined) {
-      console.log('your mom');
+      console.log('if statement')
       window.location.href = './store/reset'
     }
     else {
       for (let i = 0; i < product[0].timeProducts.length; i++) {
+        console.log(product[0]._id)
       %>
         <div class="simpleCart_shelfItem">
-            <a href='/store/<%= product[0].timeProducts[i].id %>'><img src="<%= product[0].timeProducts[i].img %>" class="item_thumb"/></a>
-                <h5 class="productname"><a href='/store/<%= product[0].timeProducts[i].id %>'><%= product[0].timeProducts[i].name %></a></h5>
+            <a href='/store/<%= product[0]._id %>/<%= product[0].timeProducts[i].id %>'><img src="<%= product[0].timeProducts[i].img %>" class="item_thumb"/></a>
+                <h5 class="productname"><a href='/store/<%= product[0]._id %>/<%= product[0].timeProducts[i].id %>'><%= product[0].timeProducts[i].name %></a></h5>
                 <div class="simpleStore_getDetail_price">
                     <span class="productprice">Price: $<%= product[0].timeProducts[i].price %></span>
                 </div>
                 <div class="simpleStore_getDetail_button">
-                    <a href='/store/<%= product[0].timeProducts[i].id %>' class="button">Details</a>
+                    <a href='/store/<%= product[0]._id %>/<%= product[0].timeProducts[i].id %>' class="button">Details</a>
                 </div>
 
         </div>

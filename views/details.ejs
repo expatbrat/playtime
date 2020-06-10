@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <%- include('head.ejs') %>
+<%- include('header.ejs') %>
 
 <body>
-  <%- include('header.ejs') %>
-  <% console.log('log product' + product) %>
     <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class='container'>
+
     <div class="container simpleStore">
         <div class="row">
             <a class="brand" href="#"></a>
@@ -14,19 +15,23 @@
         <div class="simpleStore_container"></div>
         <div class="simpleStore_cart_container"></div>
     </div>
+    <div class="simpleCart_shelfItem">
+        <a href='/store/<%= product[0]._id %>/<%= singleProduct.id %>'><img src="/<%= singleProduct.img %>" class="item_thumb"/></a>
+            <h5 class="productname"><a href='/store/<%= product[0]._id %>/<%= singleProduct.id %>'><%= singleProduct.name %></a></h5>
+            <div class="simpleStore_getDetail_price">
+                <span class="productprice">Price: $<%= singleProduct.price %></span>
+            </div>
+            <div class="simpleStore_getDetail_description">
+                <span class="productprice">Description: <%= singleProduct.description %></span>
+            </div>
 
-<h2> details page!!!! </h2>
-
+    </div>
     <div class='single_product'>
         <table>
-          <%= id %>
         </table>
-    <a href="./">Browse Store </a>
+    <a href="/store/">Browse Store </a>
     </div>
-
-
-
     <%- include('footer.ejs') %>
-
+  </div>
   </body>
 </html>

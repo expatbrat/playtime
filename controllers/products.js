@@ -259,31 +259,32 @@ router.get('/seed', async (req, res) => {
     }
   })
 
-  router.get('/:id', (req, res) => {
-    console.log('log param in route' + req.params.id);
+
+  router.get('/:idTime/:id', (req, res) => {
+
+
+   // console.log('log param in route1' + req.params.idTime);
+//    db.times.findOne({"_id": ObjectId("5ee135d81e7cc72c1d2281e9") })
       Product.find({}, (error, foundProducts) => {
+         let singleProduct;
+         for (let i = 0; i < foundProducts[0].timeProducts.length; i++) {
+           if (foundProducts[0].timeProducts[i]._id == req.params.id) {
+             singleProduct = foundProducts[0].timeProducts[i];
+             }
+
+         }
+
+
           res.render(
               'details.ejs',
               {
                   product: foundProducts,
-                  id: req.params.id
+                  singleProduct: singleProduct
               }
           )
       })
   })
 
-
-  // router.get('/:id', (req, res) => {
-  //   console.log('log param in route' + req.params.id);
-  //     Product.findById(req.params.id, (error, foundProducts) => {
-  //         res.render(
-  //             'details.ejs',
-  //             {
-  //                 product: foundProducts
-  //             }
-  //         )
-  //     })
-  // })
 
 
 router.get('/', (req, res) => {
