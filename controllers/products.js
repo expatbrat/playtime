@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
 
 router.get('/seed', async (req, res) => {
   var currentTime = new Date();
-  var desiredTime = new Date(2015, 09, 21, 16, 29, 55)
+  var desiredTime = new Date(2015, 09, 21, 11, 29, 55)
   var difference = currentTime - desiredTime
   var actualDate = Date.parse(currentTime) - difference
   const newProducts =
